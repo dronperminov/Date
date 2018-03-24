@@ -37,7 +37,12 @@ int main() {
 	try {
 		std::cout << "Enter date: ";
 		std::cin >> date;
-		std::cout << "Date for next testing is " << date << " (" << date.toStringWeekDay() << ")" << std::endl;
+		std::cout << "Date for next testing is " << date << std::endl;
+		std::cout << "\tDay of week: " << date.toStringWeekDay() << std::endl;
+		std::cout << "\tDay of year: " << date.getDayOfYear() << std::endl;
+		std::cout << "\tDays in month: " << date.getDaysInMonth() << std::endl;
+		std::cout << "\tIs year leap: " << date.isYearLeap() << std::endl;
+		std::cout << "\tDays from start: " << date.toDays() << std::endl;
 
 		std::cout << std::endl << "Add/sub testing:" << std::endl;
 		test(date, 50000, 1);

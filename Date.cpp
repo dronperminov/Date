@@ -74,6 +74,13 @@ Date::Date(const Date &date) {
 	year = date.year;
 }
 
+Date Date::now() {
+	time_t t = time(0);
+    tm* now = localtime(&t);
+    
+    return Date(now->tm_mday, now->tm_mon + 1, now->tm_year + 1900);
+}
+
 Date& Date::operator=(const Date &date) {
 	if (&date != this) {
 		day = date.day;
@@ -218,6 +225,14 @@ Date::WeekDay Date::getDayOfWeek() const {
     	default:
     		throw "How? o_O";
     }
+}
+
+int Date::getDayOfYear() const {
+	return daysFromThisYear(day, month, year);
+}
+
+int Date::getDaysInMonth() const {
+	return daysInMonth(month, year);
 }
 
 bool Date::isYearLeap() const {

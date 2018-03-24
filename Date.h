@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <ctime>
 
 class Date {
 	int day;
@@ -24,6 +25,8 @@ public:
 	Date(int day, int month, int year);
 	Date(const Date &date);
 
+	static Date now();
+
 	Date& operator=(const Date &date);
 	Date operator+(int days) const; // add days to date
 	Date operator-(int days) const; // sub days from date
@@ -40,6 +43,8 @@ public:
 	int getMonth() const;
 	int getYear() const;
 	WeekDay getDayOfWeek() const;
+	int getDayOfYear() const;
+	int getDaysInMonth() const;
 
 	bool isYearLeap() const;
 	long toDays() const;
